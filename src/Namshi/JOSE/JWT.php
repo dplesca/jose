@@ -55,8 +55,8 @@ class JWT
      */
     public function generateSigninInput()
     {
-        $base64payload = $this->encoder->encode(json_encode($this->getPayload(), JSON_UNESCAPED_SLASHES));
-        $base64header = $this->encoder->encode(json_encode($this->getHeader(), JSON_UNESCAPED_SLASHES));
+        $base64payload = $this->encoder->encode(json_encode($this->getPayload()));
+        $base64header = $this->encoder->encode(json_encode($this->getHeader()));
 
         return sprintf('%s.%s', $base64header, $base64payload);
     }
